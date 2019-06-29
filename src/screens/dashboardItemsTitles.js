@@ -1,0 +1,5 @@
+export const distaneTitle = 'walking distance'
+export const mealsTitle = 'organized meals'
+export const numOfWalksTitle = '# of walks today'
+export const poopsTitle = '# of poops today'
+export const snacksTitle = '# of snacks today'
