@@ -56,7 +56,7 @@ class LoadingScreen extends Component {
         if (email) this.props.navigation.navigate('App')
         else this.props.navigation.push('SignInScreen')
         // else this.props.navigation.push('SignUpScreen')
-      }, 350)
+      }, 1650)
     }
     fetchData()
     return (
