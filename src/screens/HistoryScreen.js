@@ -1,16 +1,20 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, Image, ScrollView, ActivityIndicator } from 'react-native'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import Header from '../components/Header'
 import HistoryEventItem from '../components/HistoryEventItem'
 import { fetchDogEventsFromDB } from '../actions/dbActions'
+import ImageLoader from '../components/ImageLoader'
 
 const styles = StyleSheet.create({
   drawerIconStyle: {
     width: 25,
     height: 25
+  },
+  loaderStyle: {
+    top: 330
   },
 
   container: {
@@ -62,13 +66,21 @@ class HistoryScreen extends Component {
   }
   constructor(props) {
     super(props)
+    this.state = {
+      shouldAnimationRender: true
+    }
     this.renderListOfEvents = this.renderListOfEvents.bind(this)
+    this.renderHistoryScreen = this.renderHistoryScreen.bind(this)
+    this.renderLoadingAnimation = this.renderLoadingAnimation.bind(this)
   }
 
   componentDidMount() {
     const { navigation, fetchDogEventsFromDB, dogName } = this.props
     this.willFocusListener = navigation.addListener('willFocus', async () => {
       await fetchDogEventsFromDB(dogName)
+      setTimeout(() => {
+        this.setState({ shouldAnimationRender: false })
+      }, 1200)
     })
   }
 
@@ -76,7 +88,7 @@ class HistoryScreen extends Component {
     return <HistoryEventItem key={index} event={eventsArray} navigation={this.props.navigation} />
   }
 
-  render() {
+  renderHistoryScreen() {
     console.log('>> in HistoryScreen.js')
     const { events } = this.props
     if (events.length === 0) {
@@ -107,6 +119,20 @@ class HistoryScreen extends Component {
         </ScrollView>
       </View>
     )
+  }
+
+  renderLoadingAnimation() {
+    return (
+      <View>
+        <ActivityIndicator style={styles.loaderStyle} size="large" />
+      </View>
+    )
+  }
+
+  render() {
+    return this.state.shouldAnimationRender
+      ? this.renderLoadingAnimation()
+      : this.renderHistoryScreen()
   }
 }
 

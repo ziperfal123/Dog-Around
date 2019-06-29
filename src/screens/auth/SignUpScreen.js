@@ -5,20 +5,21 @@ import PropTypes from 'prop-types'
 const styles = StyleSheet.create({
   container: {
     width: '100%',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
     flex: 1,
     backgroundColor: '#15cda8'
   },
   titleStyle: {
-    top: 30,
-    left: 30,
+    bottom: 20,
+    textAlign: 'center',
     fontSize: 38,
     color: '#f1e4e4',
     fontFamily: 'ArialHebrew'
   },
   formContainer: {
-    justifyContent: 'center',
-    top: 65,
-    left: 30
+    bottom: 130,
+    justifyContent: 'center'
   },
   inputStyle: {
     backgroundColor: 'rgba(255,255,255,0.9)',
@@ -37,7 +38,8 @@ const styles = StyleSheet.create({
     height: 40,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: 20,
+    left: 43,
     backgroundColor: '#a879d4',
     borderRadius: 6
   },
@@ -63,13 +65,14 @@ class SignUpScreen extends Component {
   }
 
   async handleSignUpPress() {
-    const { fullName, email, password } = this.state
-
+    const { fullName, password } = this.state
+    let { email } = this.state
     if (fullName && email && password) {
       if (!ValidateEmail(email)) {
         Alert.alert('please enter a valid email address')
         this.setState({ email: '', fullName: '', password: '' })
       } else {
+        email = email.toLowerCase()
         this.props.navigation.navigate('CreateDogScreen', {
           fullName,
           email,

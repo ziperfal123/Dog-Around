@@ -55,6 +55,7 @@ class LoadingScreen extends Component {
         else this.props.fetchArrOfDogsFromDBToAsyncStorage(email)
         if (email) this.props.navigation.navigate('App')
         else this.props.navigation.push('SignInScreen')
+        // else this.props.navigation.push('SignUpScreen')
       }, 350)
     }
     fetchData()

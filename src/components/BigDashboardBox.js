@@ -8,7 +8,7 @@ import { distaneTitle } from '../screens/dashboardItemsTitles'
 
 const styles = StyleSheet.create({
   bigBoxStyle: {
-    height: 250,
+    height: 281,
     marginTop: 17,
     backgroundColor: '#a879d4',
     borderWidth: 0.7,

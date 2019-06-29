@@ -9,7 +9,7 @@ import { numOfWalksTitle, poopsTitle } from '../screens/dashboardItemsTitles'
 const styles = StyleSheet.create({
   smallBoxStyle: {
     position: 'relative',
-    height: 161,
+    height: 181,
     marginTop: 17,
     backgroundColor: '#a879d4',
     borderWidth: 0.7,

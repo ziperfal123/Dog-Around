@@ -92,9 +92,11 @@ class SignInScreen extends Component {
   }
 
   async handleLogIn() {
-    const { email, password } = this.state
+    let { email } = this.state
+    const { password } = this.state
     if (!email || !password) Alert.alert('you must enter email & password')
     else {
+      email = email.toLowerCase()
       fetch(`https://rn-dog-tracker.herokuapp.com/getOwnerInfo?email=${email}`)
         .then(res => res.json())
         .then(async data => {
