@@ -59,8 +59,15 @@ class DashBoardScreen extends Component {
     )
   }
 
+  constructor() {
+    super()
+    this.state = {
+      shouldRender: true
+    }
+  }
+
   render() {
-    const dogName = this.props.dogName
+    const { dogName } = this.props
     let meals, poops, snacks, totalKmWalked, numOfWalkes
     const { dataOfCurrentDay } = this.props
 

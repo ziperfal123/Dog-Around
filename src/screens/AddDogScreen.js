@@ -14,6 +14,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import { saveArrOfDogsInStore, saveDogNameInStore } from '../actions/authActions'
+import { cleanArrOfEventsInStore, fetchCurrentDayDataFromDB } from '../actions/dbActions'
+
 import Header from '../components/Header'
 
 const styles = StyleSheet.create({
@@ -120,6 +122,8 @@ class AddDogScreen extends Component {
         await AsyncStorage.setItem('dogName', dogsNickName)
         this.props.saveArrOfDogsInStore(arrOfDogs)
         this.props.saveDogNameInStore(dogsNickName)
+        this.props.cleanArrOfEventsInStore()
+        await this.props.fetchCurrentDayDataFromDB(dogsNickName)
         this.props.navigation.navigate('DogAddedScreen')
       } else {
         Alert.alert('dog name is alreay exist.. try again')
@@ -176,11 +180,13 @@ const mapStateToProps = state => ({
 AddDogScreen.propTypes = {
   saveArrOfDogsInStore: PropTypes.func,
   saveDogNameInStore: PropTypes.func,
+  cleanArrOfEventsInStore: PropTypes.func,
+  fetchCurrentDayDataFromDB: PropTypes.func,
   navigation: PropTypes.object,
   arrOfDogs: PropTypes.array
 }
 
 export default connect(
   mapStateToProps,
-  { saveArrOfDogsInStore, saveDogNameInStore }
+  { saveArrOfDogsInStore, saveDogNameInStore, cleanArrOfEventsInStore, fetchCurrentDayDataFromDB }
 )(AddDogScreen)

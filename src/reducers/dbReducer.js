@@ -2,7 +2,8 @@ import {
   FETCH_DOG_EVENTS,
   FETCH_CURRENT_DAY_DATA,
   FETCH_ARR_OF_DOGS_FROM_DB_TO_ASYNCSTORAGE,
-  UPDATE_SPECIFIC_FIELD_IN_STORE
+  UPDATE_SPECIFIC_FIELD_IN_STORE,
+  CLEAN_ARR_OF_EVENTS_IN_STORE
 } from '../actions/actionTypes'
 
 import { mealsTitle, poopsTitle, snacksTitle } from '../screens/dashboardItemsTitles'
@@ -28,6 +29,12 @@ export default function(state = initialState, action) {
         arrOfEvents: action.payload
       }
 
+    case CLEAN_ARR_OF_EVENTS_IN_STORE:
+      return {
+        ...state,
+        arrOfEvents: action.payload
+      }
+
     case FETCH_CURRENT_DAY_DATA:
       if (action.payload.length !== 0) {
         return {
@@ -43,7 +50,13 @@ export default function(state = initialState, action) {
       }
       return {
         ...state,
-        dataOfCurrentDay: false
+        dataOfCurrentDay: false,
+        currentDay_kmWalked: -1,
+        currentDay_numOfWalks: -1,
+        currentDay_poops: -1,
+        currentDay_meals: -1,
+        currentDay_snacks: -1,
+        numOfWalkes: -1
       }
 
     case FETCH_ARR_OF_DOGS_FROM_DB_TO_ASYNCSTORAGE:

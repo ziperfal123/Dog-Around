@@ -1,7 +1,8 @@
 import {
   FETCH_DOG_EVENTS,
   FETCH_CURRENT_DAY_DATA,
-  UPDATE_SPECIFIC_FIELD_IN_STORE
+  UPDATE_SPECIFIC_FIELD_IN_STORE,
+  CLEAN_ARR_OF_EVENTS_IN_STORE
 } from './actionTypes'
 import { mealsTitle, poopsTitle, snacksTitle } from '../screens/dashboardItemsTitles'
 
@@ -14,6 +15,13 @@ export const fetchDogEventsFromDB = nickName => dispatch => {
         payload: data
       })
     })
+}
+
+export const cleanArrOfEventsInStore = () => dispatch => {
+  dispatch({
+    type: CLEAN_ARR_OF_EVENTS_IN_STORE,
+    payload: []
+  })
 }
 
 export const fetchCurrentDayDataFromDB = nickName => dispatch => {

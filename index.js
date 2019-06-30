@@ -1,7 +1,7 @@
 /**
  * @format
  */
-console.disableYellowBox = true
+disableYellowBox = true
 import React, { Component } from 'react'
 import { AppRegistry, SafeAreaView, StyleSheet, AsyncStorage } from 'react-native'
 import { name as appName } from './app.json'

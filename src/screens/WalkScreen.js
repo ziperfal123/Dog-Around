@@ -57,7 +57,8 @@ class WalkScreen extends Component {
       longitude: null,
       latitude: null,
       markers: [],
-      watchID
+      watchID,
+      renderFlag: false
     }
 
     const watchID = navigator.geolocation.watchPosition(position => {
@@ -66,10 +67,9 @@ class WalkScreen extends Component {
         distance = this.state.distance + haversine(this.state.previousCoordinate, position.coords)
         if (this.distanceInfo && this.speedInfo) {
           this.distanceInfo.setState({ value: distance.toFixed(2) })
-          this.speedInfo.setState({ value: position.coords.speed })
+          this.speedInfo.setState({ value: position.coords.speed.toFixed(2) })
         }
       }
-
       this.setState(
         {
           markers: [
@@ -88,6 +88,15 @@ class WalkScreen extends Component {
     })
   }
 
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition(position => {
+      this.setState({
+        longitude: position.coords.longitude,
+        latitude: position.coords.latitude
+      })
+    })
+  }
+
   static navigationOptions = {
     drawerIcon: (
       <Image
@@ -98,22 +107,17 @@ class WalkScreen extends Component {
   }
 
   handleTripEnd = () => {
-    Alert.alert('Trip Details Saved Successfully')
-    fetch(
-      `https://rn-dog-tracker.herokuapp.com/saveDogTrip?coords=${JSON.stringify(
-        this.state.markers
-      )}&distance=${this.distanceInfo.state.value}&nickName=${this.props.dogName}`
-    )
+    if (this.distanceInfo.state.value < 0.01 || !this.distanceInfo.state.value)
+      Alert.alert('Trips under 10m are not being saved')
+    else {
+      Alert.alert('Trip Details Saved Successfully')
+      fetch(
+        `https://rn-dog-tracker.herokuapp.com/saveDogTrip?coords=${JSON.stringify(
+          this.state.markers
+        )}&distance=${this.distanceInfo.state.value}&nickName=${this.props.dogName}`
+      )
+    }
     this.props.navigation.navigate('Auth')
-  }
-
-  componentDidMount() {
-    navigator.geolocation.getCurrentPosition(position => {
-      this.setState({
-        longitude: position.coords.longitude,
-        latitude: position.coords.latitude
-      })
-    })
   }
 
   render() {
@@ -135,7 +139,7 @@ class WalkScreen extends Component {
             >
               <MapView.Polyline
                 coordinates={this.state.markers.map(marker => marker.coordinate)}
-                strokeWidth={5}
+                strokeWidth={4}
               />
             </MapView>
           </View>

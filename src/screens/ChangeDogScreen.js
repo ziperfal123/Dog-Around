@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
-    backgroundColor: 'red',
     flexDirection: 'row',
     flexWrap: 'wrap',
     marginTop: 20,
