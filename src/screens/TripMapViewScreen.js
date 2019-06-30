@@ -54,10 +54,6 @@ export default class TripMapViewScreen extends Component {
     this.props.navigation.navigate('TripsListScreen')
   }
 
-  onMapReady = () => {
-    console.log('im loaded!')
-  }
-
   render() {
     const id = this.props.navigation.getParam('id')
     const trip = this.props.navigation.getParam('trip')
@@ -71,7 +67,7 @@ export default class TripMapViewScreen extends Component {
       <View>
         <Header navigation={this.props.navigation} />
         <Text style={styles.titleStyle}>Trip {id}</Text>
-        <Text style={styles.distanceStyle}>Total Distancs- {this.distance}</Text>
+        <Text style={styles.distanceStyle}>Total Distance- {this.distance}</Text>
         <MapView
           style={styles.mapStyle}
           initialRegion={{

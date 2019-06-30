@@ -21,19 +21,14 @@ const initialState = {
 }
 
 export default function(state = initialState, action) {
-  console.log(`rrrrr --> checking action ${action.type} in dbReducer`)
   switch (action.type) {
     case FETCH_DOG_EVENTS:
-      console.log(' >> in fetchDogEvents CASE')
-      // console.log(action.payload)
       return {
         ...state,
         arrOfEvents: action.payload
       }
 
     case FETCH_CURRENT_DAY_DATA:
-      console.log(' >> IN fetchCurrentDayData CASE')
-      // console.log(action.payload)
       if (action.payload.length !== 0) {
         return {
           ...state,
@@ -52,14 +47,12 @@ export default function(state = initialState, action) {
       }
 
     case FETCH_ARR_OF_DOGS_FROM_DB_TO_ASYNCSTORAGE:
-      console.log(' >> IN FETCH_ARR_OF_DOGS_FROM_DB_TO_ASYNCSTORAGE CASE')
       return {
         ...state,
         arrOfDogs: action.payload
       }
 
     case UPDATE_SPECIFIC_FIELD_IN_STORE:
-      console.log(' >> IN UPDATE_SPECIFIC_FIELD_IN_STORE CASE')
       switch (action.fieldName) {
         case mealsTitle:
           return {

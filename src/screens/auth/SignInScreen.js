@@ -132,7 +132,6 @@ class SignInScreen extends Component {
   }
 
   render() {
-    console.log('>> in SignInScreen.js')
     return (
       <View style={styles.container}>
         <View style={styles.logoContainer}>

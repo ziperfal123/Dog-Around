@@ -39,8 +39,6 @@ class HistoryEventItem extends Component {
   }
 
   render() {
-    console.log(' cccc--> in HistoryEventItem.js')
-
     const { event } = this.props
     const date = new Date(event.Date)
     let totalKm = 0

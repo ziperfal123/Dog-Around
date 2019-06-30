@@ -49,11 +49,9 @@ export default class TripsListScreen extends Component {
   }
 
   render() {
-    const arrowChar = '< '
     const event = this.props.navigation.getParam('event')
     const tripsArray = event.Trips
     const date = new Date(event.Date)
-    console.log(tripsArray)
     return (
       <View>
         <Header navigation={this.props.navigation} />

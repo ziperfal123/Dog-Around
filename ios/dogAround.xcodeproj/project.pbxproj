@@ -47,6 +47,7 @@
 		4D46C807A233414AA667DA4C /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C82624BC616544778AAA88BC /* Roboto_medium.ttf */; };
 		5351A9D580E54B5580BA095B /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB50D87C7F514DA19632C9ED /* MaterialCommunityIcons.ttf */; };
 		5897D1D748C74ED0B3DBAB2B /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB06CCEEEE9E48A49EA52B61 /* FontAwesome5_Solid.ttf */; };
+		658F40C822C7DF910040FF25 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 658F40C722C7DF910040FF25 /* icon@2x.png */; };
 		6A4A58F309654B33A11D4C76 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D99256CD90F54DA2AFDF2D84 /* Ionicons.ttf */; };
 		6D683535783045CF9014D242 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E52A9BB9B78429391B010B7 /* Entypo.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -402,6 +403,7 @@
 		520C29B1D6E446919FBDE4A5 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		5E2D92EC57B74C73A277E88F /* libRNGestureHandler-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNGestureHandler-tvOS.a"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		658F40C722C7DF910040FF25 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../assets/icon@2x.png"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		8292DC4C5EFA49BAA662CBB0 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/native-base/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
@@ -566,6 +568,7 @@
 		13B07FAE1A68108700A75B9A /* dogAround */ = {
 			isa = PBXGroup;
 			children = (
+				658F40C622C7DF700040FF25 /* App icons */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -653,6 +656,14 @@
 				658F40C422C7CD6C0040FF25 /* libAirMaps.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		658F40C622C7DF700040FF25 /* App icons */ = {
+			isa = PBXGroup;
+			children = (
+				658F40C722C7DF910040FF25 /* icon@2x.png */,
+			);
+			name = "App icons";
 			sourceTree = "<group>";
 		};
 		78C398B11ACF4ADC00677621 /* Products */ = {
@@ -842,7 +853,11 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = LR76PHQ3QJ;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = LR76PHQ3QJ;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1255,6 +1270,7 @@
 				6A4A58F309654B33A11D4C76 /* Ionicons.ttf in Resources */,
 				5351A9D580E54B5580BA095B /* MaterialCommunityIcons.ttf in Resources */,
 				8B5244377D03419390B542A0 /* MaterialIcons.ttf in Resources */,
+				658F40C822C7DF910040FF25 /* icon@2x.png in Resources */,
 				F4528D812A0E4EC7936C39D4 /* Octicons.ttf in Resources */,
 				4D46C807A233414AA667DA4C /* Roboto_medium.ttf in Resources */,
 				16E089B0D8104A40A489FDF6 /* Roboto.ttf in Resources */,
@@ -1379,6 +1395,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = LR76PHQ3QJ;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1414,6 +1431,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = LR76PHQ3QJ;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-change-icon/ios/**",
@@ -1446,6 +1464,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = LR76PHQ3QJ;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-change-icon/ios/**",
@@ -1459,7 +1478,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.dogAround2;
 				PRODUCT_NAME = dogAround;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1470,6 +1489,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LR76PHQ3QJ;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-change-icon/ios/**",
@@ -1483,7 +1503,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.dogAround2;
 				PRODUCT_NAME = dogAround;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

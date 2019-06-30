@@ -20,9 +20,11 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
+    backgroundColor: 'red',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginTop: 20
+    marginTop: 20,
+    marginLeft: 20
   }
 })
 
@@ -47,16 +49,13 @@ class ChangeDogScreen extends Component {
   }
 
   eachDog(dog, index) {
-    console.log(index)
     return <ChooseDogItem name={dog} key={index} index={index} onHandlePress={this.handlePress} />
   }
 
   render() {
-    console.log('>> in ChangeDogScreen.js')
     const { arrOfDogs } = this.props
-    console.log(arrOfDogs)
     return (
-      <View style={styles.container}>
+      <View>
         <Header navigation={this.props.navigation} />
         <Text style={styles.titleStyle}>Change dog</Text>
         <View style={styles.contentContainer}>

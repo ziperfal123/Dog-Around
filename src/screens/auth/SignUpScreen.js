@@ -84,7 +84,6 @@ class SignUpScreen extends Component {
     }
   }
   render() {
-    console.log('>> in SignUpScreen.js')
     return (
       <View style={styles.container}>
         <Text style={styles.titleStyle}>Sign Up</Text>

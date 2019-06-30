@@ -7,7 +7,6 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import Header from '../components/Header'
-import RunInfo from '../components/RunInfo'
 import RunInfoNumeric from '../components/RunInfoNumeric'
 
 const styles = StyleSheet.create({
@@ -100,8 +99,6 @@ class WalkScreen extends Component {
 
   handleTripEnd = () => {
     Alert.alert('Trip Details Saved Successfully')
-
-    // console.log(JSON.stringify(this.state.markers))
     fetch(
       `https://rn-dog-tracker.herokuapp.com/saveDogTrip?coords=${JSON.stringify(
         this.state.markers
@@ -120,11 +117,10 @@ class WalkScreen extends Component {
   }
 
   render() {
-    console.log('<< in WalkScreen.js')
     return (
       <View style={styles.container}>
         <Header navigation={this.props.navigation} />
-        {this.state.longitude != null && this.state.latitude != null ? (
+        {this.state.longitude && this.state.latitude ? (
           <View style={styles.contentContainer}>
             <MapView
               style={styles.map}

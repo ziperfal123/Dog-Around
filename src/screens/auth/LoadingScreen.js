@@ -38,7 +38,6 @@ class LoadingScreen extends Component {
   }
 
   render() {
-    console.log('>> in LoadingScreen.js')
     const fetchData = async () => {
       const email = await AsyncStorage.getItem('email')
       const dogName = await AsyncStorage.getItem('dogName')
@@ -55,8 +54,7 @@ class LoadingScreen extends Component {
         else this.props.fetchArrOfDogsFromDBToAsyncStorage(email)
         if (email) this.props.navigation.navigate('App')
         else this.props.navigation.push('SignInScreen')
-        // else this.props.navigation.push('SignUpScreen')
-      }, 1650)
+      }, 1700)
     }
     fetchData()
     return (

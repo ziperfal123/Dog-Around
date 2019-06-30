@@ -24,22 +24,12 @@ const styles = StyleSheet.create({
 })
 
 class Application extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isLoggedIn: true
-    }
-  }
-
   async componentDidMount() {
-    console.log('Component Did Mount')
     const email = await AsyncStorage.getItem('email')
     const dogName = await AsyncStorage.getItem('dogName')
     let arrOfDogs = await AsyncStorage.getItem('arrOfDogs')
     arrOfDogs = JSON.parse(arrOfDogs)
-    console.log(arrOfDogs)
     if (email) {
-      console.log('if Email')
       store.dispatch(fetchDogNameFromAsyncStorage())
       store.dispatch(fetchDogEventsFromDB(dogName))
       store.dispatch(fetchCurrentDayDataFromDB(dogName))
@@ -51,8 +41,6 @@ class Application extends Component {
   }
 
   render() {
-    console.log('in index..')
-
     return (
       <Provider store={store}>
         <SafeAreaView style={styles.safeAreaStyle}>

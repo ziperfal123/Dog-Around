@@ -30,10 +30,9 @@ class WelcomeScreen extends Component {
   }
 
   render() {
-    console.log('>> in WelcomeScreen.js')
     setTimeout(() => {
       this.props.navigation.navigate('App')
-    }, 3000)
+    }, 1800)
     return (
       <View style={styles.container}>
         <Text style={styles.titleStyle}>You have Successfully signed up!</Text>

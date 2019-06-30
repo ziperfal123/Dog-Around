@@ -6,7 +6,6 @@ import {
 import { mealsTitle, poopsTitle, snacksTitle } from '../screens/dashboardItemsTitles'
 
 export const fetchDogEventsFromDB = nickName => dispatch => {
-  console.log(' aaaaaaa --> IN fetchDogEventsFromDB() ACTION!!')
   fetch(`https://rn-dog-tracker.herokuapp.com/getEventsForDog?nickName=${nickName}`)
     .then(res => res.json())
     .then(data => {
@@ -18,7 +17,6 @@ export const fetchDogEventsFromDB = nickName => dispatch => {
 }
 
 export const fetchCurrentDayDataFromDB = nickName => dispatch => {
-  console.log(' aaaaaaa --> IN fetchCurrentDayDataFromDB() ACTION!!')
   fetch(`https://rn-dog-tracker.herokuapp.com/getEventsForDogForCurrentDate?nickName=${nickName}`)
     .then(res => res.json())
     .then(data => {
@@ -30,7 +28,6 @@ export const fetchCurrentDayDataFromDB = nickName => dispatch => {
 }
 
 export const updateSpecificFieldInDogEvents = (nickname, fieldTitle, dataToUpdate) => dispatch => {
-  console.log(' aaaaaaa --> IN updateSpecificFieldInDogEvents() ACTION!!')
   let fieldRoute
   switch (fieldTitle) {
     case mealsTitle:
@@ -53,9 +50,7 @@ export const updateSpecificFieldInDogEvents = (nickname, fieldTitle, dataToUpdat
       Accept: 'application/json',
       'Content-Type': 'application/json'
     }
-  })
-    .then(res => res.json)
-    .then(data => {})
+  }).then(res => res.json)
 
   dispatch({
     type: UPDATE_SPECIFIC_FIELD_IN_STORE,

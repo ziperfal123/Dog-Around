@@ -68,7 +68,6 @@ function handleSignOut(props) {
     [
       {
         text: 'Cancel',
-        onPress: () => console.log('Cancel Pressed'),
         style: 'cancel'
       },
       { text: 'OK', onPress: () => signOutAsyncStorageCleaning(props) }

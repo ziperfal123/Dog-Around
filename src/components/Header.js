@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
 
 export default class Header extends Component {
   render() {
-    console.log(' cccc--> in Header.js')
     return (
       <View style={styles.container}>
         <Image style={styles.boneIconStyle} source={require('../../assets/dogIcon.png')} />

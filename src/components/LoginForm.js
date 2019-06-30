@@ -34,8 +34,6 @@ const styles = StyleSheet.create({
   }
 })
 const LoginForm = props => {
-  console.log(' cccc--> in LoginForm.js')
-
   return (
     <View style={styles.container}>
       <TextInput

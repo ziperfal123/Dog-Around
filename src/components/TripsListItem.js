@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, TouchableOpacity } from 'react-native'
+import PropTypes from 'prop-types'
 
 const styles = StyleSheet.create({
   itemContainer: {
@@ -33,7 +34,6 @@ export default class TripsListItem extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <TouchableOpacity style={styles.itemContainer} onPress={this.handlePress}>
         <Text style={styles.titleStyle}>
@@ -43,4 +43,9 @@ export default class TripsListItem extends Component {
       </TouchableOpacity>
     )
   }
+}
+
+TripsListItem.propTypes = {
+  id: PropTypes.string,
+  navigation: PropTypes.object
 }

@@ -162,7 +162,6 @@ class SmallDashboardBox extends Component {
   }
 
   render() {
-    console.log(' cccc--> in SmallDashboardBox.js')
     let { dataToDisplay } = this.props
     const { title } = this.props
     const updateSection = this.renderUpdateSectionOnLongPress()

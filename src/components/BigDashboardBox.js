@@ -137,7 +137,6 @@ class BigDashboardBox extends Component {
   }
 
   render() {
-    console.log(' cccc--> in BigDashboardScreen.js')
     const { title } = this.props
     let { dataToDisplay } = this.props
     const updateSection = this.renderUpdateSectionOnLongPress()

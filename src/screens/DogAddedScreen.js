@@ -30,10 +30,9 @@ class DogAddedScreen extends Component {
   }
 
   render() {
-    console.log('>> in DogAddedScreen.js')
     setTimeout(() => {
       this.props.navigation.navigate('App')
-    }, 3000)
+    }, 2000)
     return (
       <View style={styles.container}>
         <Text style={styles.titleStyle}>You have Successfully Added a dog!</Text>

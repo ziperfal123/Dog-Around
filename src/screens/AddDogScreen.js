@@ -6,7 +6,8 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
-  AsyncStorage
+  AsyncStorage,
+  Alert
 } from 'react-native'
 import PropTypes from 'prop-types'
 
@@ -86,7 +87,7 @@ class AddDogScreen extends Component {
     const email = await AsyncStorage.getItem('email')
     const { dogsNickName, numOfMeals, numOfSnacks } = this.state
     if (dogsNickName === '' || numOfMeals === '' || numOfSnacks === '')
-      alert('all the fields are required!')
+      Alert.alert('all the fields are required!')
     else {
       fetch('https://rn-dog-tracker.herokuapp.com/dogsSignUp', {
         method: 'post',
@@ -115,25 +116,22 @@ class AddDogScreen extends Component {
         })
       if (this.state.didDogWasSignedSuccesfully) {
         arrOfDogs = arrOfDogs.concat([dogsNickName])
-        // console.log(arrOfDogs)
         await AsyncStorage.setItem('arrOfDogs', JSON.stringify(arrOfDogs))
         await AsyncStorage.setItem('dogName', dogsNickName)
         this.props.saveArrOfDogsInStore(arrOfDogs)
         this.props.saveDogNameInStore(dogsNickName)
         this.props.navigation.navigate('DogAddedScreen')
       } else {
-        alert('dog name is alreay exist.. try again')
+        Alert.alert('dog name is alreay exist.. try again')
         this.setState({
           dogsNickName: '',
           didDogWasSignedSuccesfully: true
         })
       }
     }
-    // console.log(arrOfDogs)
   }
 
   render() {
-    console.log('>> in AddDogScreen.js')
     return (
       <View style={styles.container}>
         <Header navigation={this.props.navigation} />
@@ -178,7 +176,8 @@ const mapStateToProps = state => ({
 AddDogScreen.propTypes = {
   saveArrOfDogsInStore: PropTypes.func,
   saveDogNameInStore: PropTypes.func,
-  navigation: PropTypes.object
+  navigation: PropTypes.object,
+  arrOfDogs: PropTypes.array
 }
 
 export default connect(

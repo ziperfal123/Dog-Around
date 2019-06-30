@@ -33,13 +33,11 @@ export default class ChooseDogItem extends Component {
 
   async handlePress() {
     const { name } = this.props
-    console.log(name)
     await AsyncStorage.setItem('dogName', name)
     this.props.onHandlePress()
   }
 
   render() {
-    console.log(' cccc--> in ChooseDogItem.js')
     let url
     switch (this.props.index) {
       case 0:

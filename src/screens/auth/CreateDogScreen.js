@@ -116,7 +116,6 @@ class CreateDogScreen extends Component {
         })
       )
       .then(res => {
-        console.log(res)
         fetch(
           `https://rn-dog-tracker.herokuapp.com/addOwnerToDog?email=${email}&nickName=${dogsNickName}`,
           {
@@ -144,7 +143,6 @@ class CreateDogScreen extends Component {
     }
   }
   render() {
-    console.log(' >> in CreateDogScreen.js')
     return (
       <View style={styles.container}>
         <Text style={styles.titleStyle}>Create your dog</Text>

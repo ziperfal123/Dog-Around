@@ -31,7 +31,6 @@ export default class ImageLoader extends Component {
   }
 
   render() {
-    console.log(' cccc--> in ImageLoader.js')
     this.handleAnimation()
     return (
       <Animated.Image

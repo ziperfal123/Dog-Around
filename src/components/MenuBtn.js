@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
   }
 })
 const MenuBtn = props => {
-  console.log(' cccc--> in MenuBtn.js')
   return (
     <View>
       <TouchableOpacity onPress={() => props.navigation.openDrawer()}>

@@ -60,7 +60,6 @@ class DashBoardScreen extends Component {
   }
 
   render() {
-    console.log(' >> in DashboardScreen.js')
     const dogName = this.props.dogName
     let meals, poops, snacks, totalKmWalked, numOfWalkes
     const { dataOfCurrentDay } = this.props

@@ -26,7 +26,6 @@ export default class RunInfo extends Component {
   }
 
   render() {
-    console.log('cccc--> in RunInfo.js')
     const value = this.state.value ? this.formatvalue() : '-'
     return (
       <View>
