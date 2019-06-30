@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image, ScrollView, ActivityIndicator } from 're
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
+import { fetchDogEventsFromDB } from '../actions/dbActions'
 import Header from '../components/Header'
 import HistoryEventItem from '../components/HistoryEventItem'
 
@@ -73,9 +74,8 @@ class HistoryScreen extends Component {
   }
 
   componentDidMount() {
-    const { navigation } = this.props
-
-    this.willFocusListener = navigation.addListener('willFocus', async () => {
+    const { navigation, dogName } = this.props
+    this.willFocusListener = navigation.addListener('willFocus', () => {
       setTimeout(() => {
         this.setState({ shouldAnimationRender: false })
       }, 1300)
@@ -83,6 +83,11 @@ class HistoryScreen extends Component {
     this.props.navigation.addListener('didBlur', () => {
       this.setState({ shouldAnimationRender: true })
     })
+  }
+
+  componentWillUpdate() {
+    const { dogName } = this.props
+    this.props.fetchDogEventsFromDB(dogName)
   }
 
   renderListOfEvents(eventsArray, index) {
@@ -144,10 +149,11 @@ const mapStateToProps = state => ({
 HistoryScreen.propTypes = {
   navigation: PropTypes.object,
   events: PropTypes.array,
-  dogName: PropTypes.string
+  dogName: PropTypes.string,
+  fetchDogEventsFromDB: PropTypes.func
 }
 
 export default connect(
   mapStateToProps,
-  null
+  { fetchDogEventsFromDB }
 )(HistoryScreen)

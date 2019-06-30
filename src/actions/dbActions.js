@@ -6,8 +6,8 @@ import {
 } from './actionTypes'
 import { mealsTitle, poopsTitle, snacksTitle } from '../screens/dashboardItemsTitles'
 
-export const fetchDogEventsFromDB = nickName => dispatch => {
-  fetch(`https://rn-dog-tracker.herokuapp.com/getEventsForDog?nickName=${nickName}`)
+export const fetchDogEventsFromDB = nickName => async dispatch => {
+  await fetch(`https://rn-dog-tracker.herokuapp.com/getEventsForDog?nickName=${nickName}`)
     .then(res => res.json())
     .then(data => {
       dispatch({
