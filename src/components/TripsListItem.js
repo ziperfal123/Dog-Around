@@ -46,6 +46,7 @@ export default class TripsListItem extends Component {
 }
 
 TripsListItem.propTypes = {
-  id: PropTypes.string,
-  navigation: PropTypes.object
+  id: PropTypes.number,
+  navigation: PropTypes.object,
+  trip: PropTypes.array
 }

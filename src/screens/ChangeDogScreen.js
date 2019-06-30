@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
+import { saveDogNameInStore } from '../actions/authActions'
+
 import Header from '../components/Header'
 import ChooseDogItem from '../components/ChooseDogItem'
 
@@ -43,7 +45,8 @@ class ChangeDogScreen extends Component {
     )
   }
 
-  handlePress() {
+  async handlePress(dog) {
+    await this.props.saveDogNameInStore(dog)
     this.props.navigation.navigate('Auth')
   }
 
@@ -71,10 +74,11 @@ const mapStateToProps = state => ({
 
 ChangeDogScreen.propTypes = {
   navigation: PropTypes.object,
-  arrOfDogs: PropTypes.array
+  arrOfDogs: PropTypes.array,
+  saveDogNameInStore: PropTypes.func
 }
 
 export default connect(
   mapStateToProps,
-  null
+  { saveDogNameInStore }
 )(ChangeDogScreen)

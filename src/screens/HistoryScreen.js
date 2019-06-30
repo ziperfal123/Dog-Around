@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 
 import Header from '../components/Header'
 import HistoryEventItem from '../components/HistoryEventItem'
-import { fetchDogEventsFromDB } from '../actions/dbActions'
 
 const styles = StyleSheet.create({
   drawerIconStyle: {
@@ -74,9 +73,9 @@ class HistoryScreen extends Component {
   }
 
   componentDidMount() {
-    const { navigation, fetchDogEventsFromDB, dogName } = this.props
+    const { navigation } = this.props
+
     this.willFocusListener = navigation.addListener('willFocus', async () => {
-      await fetchDogEventsFromDB(dogName)
       setTimeout(() => {
         this.setState({ shouldAnimationRender: false })
       }, 1300)
@@ -145,11 +144,10 @@ const mapStateToProps = state => ({
 HistoryScreen.propTypes = {
   navigation: PropTypes.object,
   events: PropTypes.array,
-  fetchDogEventsFromDB: PropTypes.func,
   dogName: PropTypes.string
 }
 
 export default connect(
   mapStateToProps,
-  { fetchDogEventsFromDB }
+  null
 )(HistoryScreen)

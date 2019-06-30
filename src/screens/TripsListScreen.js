@@ -45,7 +45,7 @@ export default class TripsListScreen extends Component {
 
   renderList(trip, index) {
     index += 1
-    return <TripsListItem trip={trip} id={index} navigation={this.props.navigation} />
+    return <TripsListItem trip={trip} id={index} key={index} navigation={this.props.navigation} />
   }
 
   render() {

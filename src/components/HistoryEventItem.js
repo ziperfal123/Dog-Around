@@ -74,7 +74,8 @@ class HistoryEventItem extends Component {
 }
 
 HistoryEventItem.propTypes = {
-  event: PropTypes.object
+  event: PropTypes.object,
+  navigation: PropTypes.object
 }
 
 export default HistoryEventItem

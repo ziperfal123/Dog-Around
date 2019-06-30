@@ -34,7 +34,7 @@ export default class ChooseDogItem extends Component {
   async handlePress() {
     const { name } = this.props
     await AsyncStorage.setItem('dogName', name)
-    this.props.onHandlePress()
+    this.props.onHandlePress(name)
   }
 
   render() {
