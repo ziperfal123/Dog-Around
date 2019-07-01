@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, Image, Button, Alert } from 'react-native'
+import { StyleSheet, View, Image, Button, Alert } from 'react-native'
 
 import haversine from 'haversine'
 import MapView from 'react-native-maps'
@@ -25,17 +25,16 @@ const styles = StyleSheet.create({
     height: 25
   },
   map: {
-    height: 550,
+    height: 625,
     position: 'absolute',
-    top: 0,
     right: 0,
-    bottom: 0,
+    bottom: 95,
     left: 0
   },
   infoWrapper: {
     position: 'absolute',
     left: 0,
-    bottom: 40,
+    bottom: 50,
     right: 0,
     flexDirection: 'row',
     backgroundColor: 'rgba(255,255,255,0.75)',
@@ -44,7 +43,7 @@ const styles = StyleSheet.create({
   },
   endTripStyle: {
     backgroundColor: 'rgba(255,255,255,0.75)',
-    bottom: 2
+    bottom: 12
   }
 })
 
